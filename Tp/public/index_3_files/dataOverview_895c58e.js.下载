@@ -1,0 +1,1 @@
+define("home:page/platform/dataOverview/dataOverview.js",function(require,exports,module){"use strict";var $=require("common:widget/lib/jquery/jquery"),dataOverview={init:function(){$("#show-tips").on("click",function(){$("#modal-box").show()}),$("#modal-close").on("click",function(){$("#modal-box").hide()})}};module.exports=dataOverview});
