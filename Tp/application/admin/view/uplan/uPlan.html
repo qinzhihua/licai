@@ -1,19 +1,4 @@
 ﻿<!doctype html>
-
-
-    
-    
-    
-    
-    
-
-
-    
-
-    
-    
-
-
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -35,29 +20,15 @@
             };
         </script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <meta name="renderer" content="webkit">
         <meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
         <meta name="baidu-site-verification" content="wibJopuIuI" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        
     <meta name="keywords" content="投资理财产品,个人理财计划,可靠的互联网理财,人人贷U计划">
     <meta name="description" content="人人贷U计划是人人贷为您提供的本金自动循环出借及到期自动转让退出的理财工具性产品，该计划所对应的借款均100%适用于人人贷用户利益保障机制，安全性高。利息收益可选择每月复投或返还，并由系统实现分散投资，更好的满足用户多样化的理财需求。">
     <title>投资理财产品_个人理财计划_可靠的互联网理财-人人贷U计划</title>
-
-        
             <link rel="shortcut icon" type="image/x-icon" href="/ps/static/common/static/img/favicon-rrd.ico" />
-        
-
         <link rel="stylesheet" type="text/css" href="__CSS__/base_41a7e4e_1.css">
-
-        
-        
-
-
-
-        
         <script type="text/javascript">
             (function(){
                 var userAgent = navigator.userAgent.toLowerCase();
@@ -66,16 +37,6 @@
                 }
             })();
         </script>
-
-        
-        
-        
-
-        
-        
-
-        
-        
         <script type="text/javascript">
     window.zhuge = window.zhuge || [];
     window.zhuge.methods = "_init debug identify track trackLink trackForm page".split(" ");
@@ -116,15 +77,9 @@
     var app_key = window.tplConf.isProduction?"ee112f4bcbe648a0a0958ff03af06b2a":"2da9e18043f74bceb761b72ca6f3ae78";
     window.zhuge.load(app_key);
 </script>
-        
-
-
-
-        
     <link rel="stylesheet" href="__CSS__/common_wdg_c1db688_1.css" /><link rel="stylesheet" href="__CSS__/common_nm_aa4d4d8_1.css" /><link rel="stylesheet" href="__CSS__/p2p_wdg_a6d1551_1.css" /><link rel="stylesheet" href="__CSS__/index_184b71b_1.css" /></head>
 
     <body >
-
         <!--[if lt IE 9]>
         <div style='border: 4px solid #FFF500; background: #FDFDC8; text-align: center; clear: both; height: 75px; position: fixed; z-index:999999999; right: 2px; bottom: 2px; left: 2px; padding:0 8px;'>
             <div style='position: absolute; right: 3px; top: 3px; font-weight: bold;z-index:999999999'><a href='#' onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'>关闭</a></div>
@@ -136,19 +91,12 @@
             </div>
         </div>
         <![endif]-->
-
-        
         <img style="display: none;" src="__PICTURE__/e99e0b623bec4163b3582e9ce6dad0e6.gif" />
-
-        
-            
             <div class="wdg-werenrendai-top-header">
     <div class="main-section">
         <span class="tel-phone"><i class="icon-phone"></i>客服电话: 400-090-6600</span>
         <ul class="site-nav">
             <li class="nav-item padding-item"><a target="_blank" href="https://www.we.com" style="color: #ff711c">返回WE理财首页</a></li>
-            
-
             <li class="nav-item padding-item"><a target="_blank" href="__ADMIN__/about/about">关于我们</a></li>
 
             <!--<li class="nav-item padding-item"><a target="_blank" href="/pc/about/rrdHelp/help">帮助中心</a></li>-->
@@ -165,9 +113,7 @@
         <a href="/" class="brand-logo mt15">
             
             <h2 class="rrd-logo">人人贷</h2>
-            
         </a>
-
         <ul class="site-nav">
             <li class="channel-item active-channel"><a href="__ADMIN__/">首页</a></li>
             <li class="channel-item ">
@@ -186,10 +132,8 @@
                 <div class="denglu">
                     <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/regist">登录</a>
                 </div>
-
             </li>
         </ul>
-        
     </div>
 </div>
 <div id="header-helper" style="display: none;">
@@ -197,15 +141,7 @@
          false 
     </span>
 </div>
-
-
-            
-        
-
         <div class="main-content">
-
-            
-
     <div id="uplanIndex">
         <div class="wdg-index-banner">
    <div class="banner-box react-slick" id="banner-box">
@@ -218,133 +154,72 @@
 </div>
         <div class="mt10 container_12_1080">
             <div class="uplan">
-                
-                
-
     <div class="uplan-list-less">
         <ul>
-            
+
+<?php foreach($res as $k => $v){?>
+            <!--<foreach name="res" item="v">-->
             <li>
                 <a class="cover" href="https://www.renrendai.com/pc/uplan/14469.html" target="_blank">
                     <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>1个月</em></span>
+                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>{$v.productName}个月</em></span>
                         <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
                     </p>
                     <p class="rate mtop">
                         
-                        <span class="num"><i class="fu">6.0</i><em>%</em></span>
+                        <span class="num"><i class="fu"><?php echo  sprintf("%.1f",$v['rate']) ?></i><em>%</em></span>
                         
                         <span class="nian">预期年化利率</span>
                         
                         <span class="highest"></span>
                     </p>
-                    <p class="name">
 
-                        
+
+
+                    <p class="name">
                         <em><i></i>查看详情</em>
-                        
                     </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14470.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>3个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">6.6</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
 
-                        
-                        <em><i></i>查看详情</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14471.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>6个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">7.2</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
 
-                        
-                        <em><i></i>查看详情</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14472.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>12个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">8.8</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
 
-                        
-                        <em ><i></i>立即加入</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14473.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>24个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">9.8</i><em>%</em><i class="dan">+0.2</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
 
-                        
-                        <em ><i></i>立即加入</em>
-                        
-                    </p>
+                    <!--<p class="name">-->
+                        <!--<em><i></i>立即加入</em>-->
+                    <!--</p>-->
+
+
+
+
+
+
                 </a>
             </li>
-            
+<?php } ?>
+            <!--</foreach>-->
+
+            <!--<li>-->
+            <!--<a class="cover" href="https://www.renrendai.com/pc/uplan/14473.html" target="_blank">-->
+                <!--<p class="time">-->
+                    <!--<span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>24个月</em></span>-->
+                    <!--<img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">-->
+                <!--</p>-->
+                <!--<p class="rate mtop">-->
+
+                    <!--<span class="num"><i class="fu">9.8</i><em>%</em><i class="dan">+0.2</i><em>%</em></span>-->
+
+                    <!--<span class="nian">预期年化利率</span>-->
+
+                    <!--<span class="highest"></span>-->
+                <!--</p>-->
+                <!--<p class="name">-->
+                    <!--<em ><i></i>立即加入</em>-->
+                <!--</p>-->
+            <!--</a>-->
+        <!--</li>-->
+
 
         </ul>
     </div>
-
-
-                
             </div>
              <div class="container_12_1080" id="uplan-index-cal">
     <div class="ui-title fn-clear">
@@ -357,29 +232,23 @@
                 <input type="text" maxlength="8"   name="uplanAmount" id="uplanAmount" class="ui-input success-input" value="10000">
                 <p class="unit">元</p>
                 <label   class="ui-term-error error" id="uplanAmount-error-label" style="visibility: hidden;" for="uplanAmount">投资金额须为1000的整数倍且不能为空</label>
-
             </div>
             <div class="button-wrapper">
                 <input type="button" value="开始计算" class="ui-button-cal" id="calcbt">
             </div>
         </div>
-
         <div class="fn-left cal-right fn-clear">
            <ul class="fn-left cal-items border-left border-right">
-                  
-                        
                             <li class="item">
                                 <ul class="cal-result">
                                     <li class="title">1个月</li>
                                     <li class="result fn-clear">
                                         <div class="result-graph fn-left"><span class="cal-income" id="income1"></span></div>
                                         <div class="result-num fn-left" id="incomeV1"></div>
+                                        <!--<div class="result-num fn-left" id="incomeV1"></div>-->
                                     </li>
                                 </ul>
                             </li>
-                         
-               
-                        
                             <li class="item">
                                 <ul class="cal-result">
                                     <li class="title">3个月</li>
@@ -389,9 +258,6 @@
                                     </li>
                                 </ul>
                             </li>
-                         
-               
-                        
                             <li class="item">
                                 <ul class="cal-result">
                                     <li class="title">6个月</li>
@@ -401,23 +267,8 @@
                                     </li>
                                 </ul>
                             </li>
-                         
-               
-                        
-               
-                        
-               
            </ul>
-
            <ul class="fn-left cal-items">
-                
-                    
-                
-                    
-                
-                    
-                
-                    
                        <li class="item">
                            <ul class="cal-result">
                                <li class="title">12个月</li>
@@ -427,9 +278,6 @@
                                </li>
                            </ul>
                        </li>
-                    
-                
-                    
                        <li class="item">
                            <ul class="cal-result">
                                <li class="title">24个月</li>
@@ -439,14 +287,9 @@
                                </li>
                            </ul>
                        </li>
-                    
-                
            </ul>
-
        </div>
-
     </div>
-
  </div>
             
  <div class="container_12_1080   " id="uplanIndexData">
@@ -469,7 +312,6 @@
         <dl class="fn-left text-center ">
             <dd ><em class="number">171.8</em><em class="unit">万次</em></dd>
             <dt class="text">加入总人次</dt>
-
         </dl>
     </div>
 </div>
@@ -477,15 +319,7 @@
             </div>
         </div>
     </div>
-
-
-
         </div>
-
-        
-
-        
-            
             <div class="werenrendai-footer">
     <div class="footer-center">
         <div class="friend-link">
@@ -566,8 +400,6 @@
         </div>
     </div>
 </div>
-
-
 <div class="fixed-download-link">
     <div class="download-link-wrap">
         <a class="calc" href="/pc/calculator/prodType/Loanplan" target="_blank">
@@ -595,38 +427,19 @@
         </div>
     </div>
 </div>
-
 <div class="fn-hide">
     <div id="weixin-content" class="p20 text-center">
         <img src="__PICTURE__/weixin_rrd_5b83f9c_1.jpg" style="width:250px" />
         <p>微信扫一扫，人人贷理财里动态全知道！</p>
     </div>
 </div>
-
-
 <script type='text/javascript'>
     function online_service() {
         
             window.open('http://chat.looyuoms.com/chat/chat/p.do?c=20000293&f=10042100&g=10048378&site=5372&r=%23params%3A姓名%2C游客', '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
         
     }
-
 </script>
-
-
-
-            
-        
-
-        
-        
-
-
-
-
-
-
-
         <script>
             /*
             var _hmt = _hmt || [];
@@ -642,19 +455,14 @@
                 s.parentNode.insertBefore(hm, s);
             })();
             */
-
             //ga统计
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            })(window,document,'script','__ABOUT__/analytics.js','ga');
             ga('create', 'UA-93150356-1', 'auto');
             ga('send', 'pageview');
         </script>
-        
-
-        
-        
     <script type="text/javascript" src="__JS__/mod_f76e019_1.js"></script><script type="text/javascript" src="__JS__/common_nm_c1e2e2f_1.js"></script><script type="text/javascript" src="__JS__/common_wdg_aa3b670_1.js"></script><script type="text/javascript" src="__JS__/p2p_wdg_674779e_1.js"></script><script type="text/javascript" src="__JS__/index_d9b40a4_1.js"></script><script type="text/javascript" src="__JS__/layout_b972aa2_1.js"></script><script type="text/javascript">!function() {
             require(["common:page/layout.js"] , function(app){
                 
@@ -687,3 +495,13 @@
         }();</script></body>
 
 </html>
+<script>
+    $(function(){
+
+        $("#calcbt").click(function(){
+
+
+
+        })
+    })
+</script>
