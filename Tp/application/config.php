@@ -17,7 +17,7 @@ return [
     // 应用命名空间
     'app_namespace'          => 'app',
     // 应用调试模式
-    'app_debug'              => false,
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -142,18 +142,22 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__JS__'=>'/ShiXun/Tp/public/js',
-        '__CSS__'=>'/ShiXun/Tp/public/css',
-        '__IMAGES__'=>'/ShiXun/Tp/public/images',
-        '__PICTURE__'=>'/ShiXun/Tp/public/picture',
-        '__ADMIN__'=>'/ShiXun/Tp/public/admin',
-        '__LOGIN__'=>'/ShiXun/Tp/public/login_files',
-        '__ABOUT__'=>'/ShiXun/Tp/public/about_files',
-        '__INDEX__'=>'/ShiXun/Tp/public/index_1_files',
-        '__INDEX2__'=>'/ShiXun/Tp/public/index_2_files',
-        '__INDEX3__'=>'/ShiXun/Tp/public/index_3_files',
-        '__US__'=>'/ShiXun/Tp/public/us_files',
-        '__COLLEGE__'=>'/ShiXun/Tp/public/college_files',
+        '__JS__'=>'/ShiXun/licai/Tp/public/js',
+        '__CSS__'=>'/ShiXun/licai/Tp/public/css',
+        '__IMAGES__'=>'/ShiXun/licai/Tp/public/images',
+        '__PICTURE__'=>'/ShiXun/licai/Tp/public/picture',
+        '__ADMIN__'=>'/ShiXun/licai/Tp/public/admin',
+        '__LOGIN__'=>'/ShiXun/licai/Tp/public/login_files',
+        '__ABOUT__'=>'/ShiXun/licai/Tp/public/about_files',
+        '__INDEX__'=>'/ShiXun/licai/Tp/public/index_1_files',
+        '__INDEX2__'=>'/ShiXun/licai/Tp/public/index_2_files',
+        '__INDEX3__'=>'/ShiXun/licai/Tp/public/index_3_files',
+        '__US__'=>'/ShiXun/licai/Tp/public/us_files',
+        '__COLLEGE__'=>'/ShiXun/licai/Tp/public/college_files',
+        '__PRIVI__'=>'/ShiXun/licai/Tp/public/privilege_files',
+        '__NEWS__'=>'/ShiXun/licai/Tp/public/news_files',
+        '__INFO__'=>'/ShiXun/licai/Tp/public/information_files',
+        '__BANK__'=>'/ShiXun/licai/Tp/public/bank_files',
 
     ],
     // 默认跳转页面对应的模板文件
@@ -252,4 +256,5 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
 ];
