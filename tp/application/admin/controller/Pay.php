@@ -83,12 +83,12 @@ class pay extends Controller
             $total_fee = session::get("money");
             Db::execute("update userinfo set money= money+$total_fee where id =1");
             session::delete("money");//清空sesson
-            echo "<script>location.href='http://www.jin.com/ShiXun/licai/Tp/public/admin/account/BANK'</script>";
+            echo "<script>location.href='http://www.shixun.com/public/admin/account/bank'</script>";
         }
         else {
             //验证失败
             //如要调试，请看alipay_notify.php页面的verifyReturn函数
-            echo "<script>location.href='http://www.jin.com/ShiXun/licai/Tp/public/admin/account/BANK'</script>";
+            echo "<script>location.href='http://www.shixun.com/public/admin/account/bank'</script>";
         }
 
     }

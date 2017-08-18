@@ -167,10 +167,15 @@
 
             <li class="channel-item" style="width: 144px;"><a href="__ADMIN__/borrow/borrow" target="_blank">我要借款/还款</a></li>
             <li class="user-item fn-clear" num="">
-                
-                    <div class="denglu">
-                        <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/login">登录</a>
-                    </div>
+                <?php if(empty($userInfo)){?>
+                <div class="denglu">
+                    <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/login">登录</a>
+                </div>
+                <?php }else{?>
+                <div class="user-name fn-clear">
+                    <a href="/public/admin/account/account">我的账户</a>
+                </div>
+                <?php }?>
                 
             </li>
         </ul>
@@ -317,84 +322,7 @@
     </div>
 </div>
 
-<div class="novice">
-    <div class="novice-top">
-        <div class="no-top-l">
-            <span>新手专区</span>
-            <i></i>
-            <em>新手投资 专享通道</em>
-        </div>
-        <div class="no-top-r hover">
-            
-            <a class="tu" href="/pc/newUser.html"><img src="__PICTURE__/more_1_c39c4fa_1.png"/></a>
-            <a class="zi" href="/pc/newUser.html">查看更多</a>
-            
-        </div>
-    </div>
-    <div class="novice-bot">
-        <div class="reward">
-            
-            <a class="new-bee-img" href="__ADMIN__/account/account"><img src="__PICTURE__/pc_sy_5.01_1.png"/></a>
-            
-        </div>
-        <ul>
-            <!---->
-            <!--<li class="newbee-hover">-->
-                <!--<a class="cover" href="https://www.renrendai.com/financeplan/14529" target="_blank">-->
-                    <!--<p class="time">-->
-                        <!--<span class="month"><img src="__PICTURE__/time.png"/><em>1个月</em></span>-->
-                        <!--<img class="xian" src="__PICTURE__/xian.png"/>-->
-                    <!--</p>-->
-                    <!--<p class="rate">-->
-                        <!--<span class="num"><i>10.0</i><em>%</em></span>-->
-                        <!--<span class="nian">预期年化利率</span>-->
-                        <!--<span class="new">新手专享 限量发布</span>-->
 
-                        <!--<span class="highest">最高可投10,000元</span>-->
-                    <!--</p>-->
-                    <!--<p class="name">-->
-                        <!--<span>U计划</span>-->
-                        <!--<i></i>-->
-                        <!---->
-                        <!--<em>立即加入</em>-->
-                        <!---->
-                    <!--</p>-->
-                <!--</a>-->
-            <!--</li>-->
-            <!---->
-            
-            <li class="newbee-hover newbee-hover-single">
-                <a href="https://www.renrendai.com/pc/uplan/14529.html" target="_blank">
-                    <div class="data">
-                        <div class="percent">
-                            <span class="rate">10.0<i>%</i></span>
-                            <div class="text">预期年化利率</div>
-                        </div>
-                        <div class="limit">
-                            <span>1个月</span>
-                            <div class="text">投资期限</div>
-                        </div>
-                        <div class="money">
-                            <span>10,000元</span>
-                            <div class="text">最高可投</div>
-                        </div>
-                    </div>
-                    <div class="badge">
-                        <span class="new">新手专享 限量发布</span>
-                    </div>
-                    <div class="link">
-                        <span>U计划</span>
-                        <i></i>
-                        
-                        <em>立即加入</em>
-                        
-                    </div>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-</div>
 
 
     <div class="fund-container premium-container salary">
@@ -407,19 +335,19 @@
     </div>
     <div class="plan clearfix">
         <div class="p-rate">
-            <div>8.8<span class="percent">%</span><span class="increase-interest">+0.4%</span></div>
+            <div><?php echo sprintf("%.1f",$premiumInfo['rate'])?><span class="percent">%</span><span class="increase-interest">+<?php echo sprintf("%.2f",$premiumInfo['interestRate'])?>%</span></div>
             <div class="b-text">预期年化利率</div>
         </div>
         <div class="p-month">
-            <div class="t-text">12个月</div>
+            <div class="t-text"><?php echo $premiumInfo['deadline']?>个月</div>
             <div class="b-text">期限</div>
         </div>
         <div class="p-title">
-            <div class="p-title-text">到期后转入自由期，仍享9.2%</div>
+            <div class="p-title-text">到期后转入自由期，仍享<?php echo sprintf("%.2f",$premiumInfo['interestRate']+$premiumInfo['rate'])?>%</div>
         </div>
         <div class="p-join pt12">
             
-                <a href="https://www.renrendai.com/pc/uplan/14415.html" target="_blank" onclick="return false">立即加入</a>
+                <a href="/public/admin/premium/premium?id=<?php echo $premiumInfo['id']?>" target="_blank" onclick="return false">立即加入</a>
             
             
         </div>
@@ -435,8 +363,8 @@
         </div>
         <div class="no-top-r hover">
             
-            <a class="tu" href="/pc/uPlan.html"><img src="__PICTURE__/more_1_c39c4fa_1.png"/></a>
-            <a class="zi" href="/pc/uPlan.html">查看更多</a>
+            <a class="tu" href="/public/admin/uplan/uplan"><img src="__PICTURE__/more_1_c39c4fa_1.png"/></a>
+            <a class="zi" href="/public/admin/uplan/uplan">查看更多</a>
             
         </div>
     </div>
@@ -448,16 +376,16 @@
 
     <div class="uplan-list-less">
         <ul>
-            
+      <?php foreach($accountInfo as $key=>$val){?>      
             <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14469.html" target="_blank">
+                <a class="cover" href="/public/admin/uplan/info?id=<?php echo $val['id']?>" target="_blank">
                     <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>1个月</em></span>
+                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em><?php echo $val['deadline']?>个月</em></span>
                         <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
                     </p>
                     <p class="rate mtop">
                         
-                        <span class="num"><i class="fu">6.0</i><em>%</em></span>
+                        <span class="num"><i class="fu"><?php echo sprintf("%.2f",$val['rate'])?></i><em>%</em></span>
                         
                         <span class="nian">预期年化利率</span>
                         
@@ -471,100 +399,7 @@
                     </p>
                 </a>
             </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14470.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>3个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">6.6</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
-
-                        
-                        <em><i></i>查看详情</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14471.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>6个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">7.2</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
-
-                        
-                        <em><i></i>查看详情</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14472.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>12个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">8.8</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
-
-                        
-                        <em ><i></i>立即加入</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-            <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14473.html" target="_blank">
-                    <p class="time">
-                        <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>24个月</em></span>
-                        <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
-                    </p>
-                    <p class="rate mtop">
-                        
-                        <span class="num"><i class="fu">9.8</i><em>%</em><i class="dan">+0.2</i><em>%</em></span>
-                        
-                        <span class="nian">预期年化利率</span>
-                        
-                        <span class="highest"></span>
-                    </p>
-                    <p class="name">
-
-                        
-                        <em ><i></i>立即加入</em>
-                        
-                    </p>
-                </a>
-            </li>
-            
-
+       <?php }?>     
         </ul>
     </div>
 
@@ -580,7 +415,7 @@
             <span>每月定投 积少成多</span>
         </div>
         
-        <a class="r-more" href="/pc/autoinvest.html">
+        <a class="r-more" href="/public/admin/autoinvest/autoinvest">
             <span class="more-link">查看更多</span>
             <img class="more-bg" src="__PICTURE__/more_1_c39c4fa_1.png" />
         </a>
@@ -588,7 +423,7 @@
     </div>
     <div class="plan clearfix">
         <div class="p-rate">
-            <div>8<span class="percent">%</span></div>
+            <div><?php echo sprintf("%.2f",$autoinvestInfo['rate'])?><span class="percent">%</span></div>
             <div class="b-text">预期年化利率</div>
         </div>
         <div class="p-start">
@@ -596,18 +431,18 @@
             <div class="b-text">投资起点</div>
         </div>
         <div class="p-month">
-            <div class="t-text">12个月</div>
+            <div class="t-text"><?php echo $autoinvestInfo['deadline']?>个月</div>
             <div class="b-text">投资期限</div>
         </div>
         <div class="p-day">
-            <div class="t-text">4日</div>
+            <div class="t-text"><?php echo substr($autoinvestInfo['productName'],-2)?>日</div>
             <div class="b-text">每月投资日</div>
         </div>
         <div class="p-join">
             
-                <a href="https://www.renrendai.com/pc/autoinvest/20558.html" target="_blank" onclick="return false">立即加入</a>
+                <a href="/public/admin/autoinvest/autoinvest" target="_blank" onclick="return false">立即加入</a>
             
-            <div class="b-text">剩余名额:165人</div>
+            <div class="b-text">剩余名额:<?php echo $autoinvestInfo['plannedInvestment']-$autoinvestInfo['actualInvestment']?>人</div>
         </div>
     </div>
 </div>
@@ -616,112 +451,8 @@
     <img src="__PICTURE__/invite_1.png" alt="" />
 </a>
 
-        <div class="fund-wrap regular-container debt-container">
-    <div class="caption clearfix">
-        <div class="l-title">
-            <div>散标/债权</div>
-            <img src="__PICTURE__/slice_1694fb4_1.png" />
-            <span>自主投资 期限灵活</span>
-        </div>
-        
-        <a class="r-more" href="/pc/loan.html">
-            <span class="more-link">查看更多</span>
-            <img class="more-bg" src="__PICTURE__/more_1_c39c4fa_1.png" />
-        </a>
-        
-    </div>
-    <div class="table">
-        <table class="t-caption">
-            <thead>
-            <tr>
-                <th class="rate regular-rate">年利率</th>
-                <th class="name">借款标题</th>
-                <th class="time">期限</th>
-                <th class="money">金额</th>
-                <th class="progress">募集进度</th>
-                <th class="action">操作</th>
-            </tr>
-            </thead>
-            <tbody class="data-list">
-                
-                <tr class="even">
-                    <td class="rate">10.20<span>%</span></td>
-                    <td class="name">日常生活消费</td>
-                    <td class="time">36个月</td>
-                    <td class="money"><span>147,500.00</span>元</td>
-                    <td class="progress" data-percent="100">
-                        <div class="percentage-text">0%</div>
-                        <div class="outer"><span class="inner"></span></div>
-                    </td>
-                    <td class="action">
-                        
-                        <a class="disabled" href="https://www.renrendai.com/pc/loan/2242286.html" target="_blank" onclick="return false">已满标</a>
-                        
-                    </td>
-                </tr>
-                
-                <tr >
-                    <td class="rate">10.20<span>%</span></td>
-                    <td class="name">装修</td>
-                    <td class="time">36个月</td>
-                    <td class="money"><span>101,000.00</span>元</td>
-                    <td class="progress" data-percent="100">
-                        <div class="percentage-text">0%</div>
-                        <div class="outer"><span class="inner"></span></div>
-                    </td>
-                    <td class="action">
-                        
-                        <a class="disabled" href="https://www.renrendai.com/pc/loan/2242184.html" target="_blank" onclick="return false">已满标</a>
-                        
-                    </td>
-                </tr>
-                
-                <tr class="even">
-                    <td class="rate">10.20<span>%</span></td>
-                    <td class="name">资金周转</td>
-                    <td class="time">36个月</td>
-                    <td class="money"><span>191,500.00</span>元</td>
-                    <td class="progress" data-percent="100">
-                        <div class="percentage-text">0%</div>
-                        <div class="outer"><span class="inner"></span></div>
-                    </td>
-                    <td class="action">
-                        
-                        <a class="disabled" href="https://www.renrendai.com/pc/loan/2242176.html" target="_blank" onclick="return false">已满标</a>
-                        
-                    </td>
-                </tr>
-                
-                <tr >
-                    <td class="rate">10.20<span>%</span></td>
-                    <td class="name">资金周转</td>
-                    <td class="time">36个月</td>
-                    <td class="money"><span>144,000.00</span>元</td>
-                    <td class="progress" data-percent="100">
-                        <div class="percentage-text">0%</div>
-                        <div class="outer"><span class="inner"></span></div>
-                    </td>
-                    <td class="action">
-                        
-                        <a class="disabled" href="https://www.renrendai.com/pc/loan/2242173.html" target="_blank" onclick="return false">已满标</a>
-                        
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
-</div>
-    </div>
 
-
-        </div>
-
-        
-
-        
-            
-            <div class="werenrendai-footer">
+<div class="werenrendai-footer">
     <div class="footer-center">
         <div class="friend-link">
             <div class="f-l-l">友情链接</div>
