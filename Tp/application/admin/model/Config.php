@@ -20,6 +20,8 @@ class Config extends Model
             // MD5密钥，安全检验码，由数字和字母组成的32位字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
             'key'		=> '1cvr0ix35iyy7qbkgs3gwymeiqlgromm',
 
+
+
             // 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=>123这类自定义参数，必须外网可以正常访问
            'notify_url' => "http://www.jin.com/ShiXun/licai/Tp/public/admin/pay/notify_url",
 

@@ -158,6 +158,9 @@ return [
         '__NEWS__'=>'/ShiXun/licai/Tp/public/news_files',
         '__INFO__'=>'/ShiXun/licai/Tp/public/information_files',
         '__BANK__'=>'/ShiXun/licai/Tp/public/bank_files',
+        '__EMAIL__'=>'/ShiXun/licai/Tp/public/email_files',
+        '__NEWE__'=>'/ShiXun/licai/Tp/public/new_email_files',
+        '__RESET__'=>'/ShiXun/licai/Tp/public/reset_pwd_files',
 
     ],
     // 默认跳转页面对应的模板文件
