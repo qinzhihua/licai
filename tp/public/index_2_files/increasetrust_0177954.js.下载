@@ -1,0 +1,1 @@
+define("event:page/increasetrust/increasetrust.js",function(require,exports,module){"use strict";var increasetrust=(require("common:widget/lib/jquery/jquery"),require("event:widget/increasetrust/increasetrust")),trust={init:function(){increasetrust.init()}};module.exports=trust});

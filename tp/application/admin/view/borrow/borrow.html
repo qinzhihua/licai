@@ -1,0 +1,498 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>人人贷借款—人人贷旗下借款产品丨人人贷借款官网</title>
+  <meta name="keywords" content="人人贷,人人贷借款, 手机贷款app,贷款平台,网上贷款,借款app,借贷,贷款,p2p贷款平台,小额贷款平台,小额贷款app,手机借款">
+  <meta name="description" content="人人贷借款app服务于手机借款用户，为小额借款用户提供快速借款服务。快速借款流程全新上线，进一步提升用户借款到账时间。最高额度10万，费率低至0.78%，最快10分钟审批完成。">
+  <link rel="shortcut icon" href="assets/images/favicon.ico?icoversion=2">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="google-site-verification" content="oQXrGa_mTgxg7joO0himE0QuFeqOVmm-SDC1H2dzT4c">
+  <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min_1.css"/>
+  <script src="__JS__/jquery.min_1.js"></script>
+  
+<link rel="stylesheet" type="text/css" href="__CSS__/index-new_1.css"/>
+
+  
+</head>
+<body>
+
+<div class="loan">
+  <div class="header">
+  <div class="content">
+    <div class="row" style="margin:0px;">
+      <a href="index.html">
+        <div class="logo left"></div>
+      </a>
+      <div class="navbar right">
+        <ul>
+          <!--<li class="index-link" style="margin-left:0px;"><a href="index.html" >首页</a>-->
+          <!--</li>-->
+          <li><a href="https://www.loanrenrendai.com/index/index.html">我要借款</a>
+          </li>
+          <li><a href="http://www.renrendai.com/" target="_blank" rel="nofollow">我要理财</a>
+          </li>
+          <li><a href="https://www.loanrenrendai.com/security.html" style="display: none;">安全保障</a>
+          </li>
+          <li id="mobileApp"><a href="javascript:void(0);">手机客户端</a>
+            <div class="menuContent" style="display: none;">
+              <ol>
+                <li class="first">
+                  <div class="left">
+                    <div class="app-icon renrendai"></div>
+                    <div class="app-name">人人贷借款APP</div>
+                  </div>
+                  <div class="app-qrcode right"></div>
+                </li>
+                <li class="last">
+                  <div class="left">
+                    <div class="app-icon welicai"></div>
+                    <div class="app-name">人人贷理财APP</div>
+                  </div>
+                  <div class="app-qrcode wlc right"></div>
+                </li>
+              </ol>
+              <div class="top-arrow">
+                <em></em>
+                <ins></ins>
+              </div>
+            </div>
+          </li>
+          <li><a href="http://www.renrendai.com/pc/about/rrd" target="_blank">关于我们</a>
+          </li>
+          <li class="old_back"><a href="__ADMIN__/login/login" target="_blank" id="login">登录还款</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  var Debounce = function (fn, scope, args) {
+    var me = this,
+      id,
+      call = function () {
+        clearInterval(id);
+        id = null;
+        fn.apply(scope, args || []);
+      };
+
+    me.delay = function (delay, newFn, newScope, newArgs) {
+      me.cancel();
+      fn = newFn || fn;
+      scope = newScope || scope;
+      args = newArgs || args;
+      id = setInterval(call, delay);
+    };
+
+    me.cancel = function () {
+      if (id) {
+        clearInterval(id);
+        id = null;
+      }
+    };
+  };
+
+  var Throttle = function (fn, scope, args) {
+    var me = this,
+      id,
+      call = function () {
+        clearInterval(id);
+        id = null;
+        fn.apply(scope, args || []);
+      };
+
+    me.delay = function (delay, newFn, newScope, newArgs) {
+      me.cancel();
+      fn = newFn || fn;
+      scope = newScope || scope;
+      args = newArgs || args;
+      id = setInterval(call, delay);
+    };
+
+    me.cancel = function () {
+      if (id) {
+        clearInterval(id);
+        id = null;
+      }
+    };
+  };
+
+  $(function () {
+    var debounceAppDisplay = new Debounce(function (bshow) {
+      if (bshow) {
+        $('.menuContent').show();
+      } else {
+        $('.menuContent').hide();
+      }
+    });
+
+    $('#mobileApp,.menuContent').on('mouseenter', function (e) {
+      debounceAppDisplay.delay(0, null, null, [true]);
+    }).on('mouseleave', function (e) {
+      debounceAppDisplay.delay(500, null, null, [false]);
+    });
+  });
+</script>
+
+  <div class="loan-banner">
+    <div class="content">
+      <div class="loan-left">
+        <dl>
+          <dt>人人贷借款</dt>
+          <dd>10分钟完成审核，急速放款</dd>
+        </dl>
+        <div class="download">
+          <div class="dbtns">
+            <a href="https://itunes.apple.com/cn/app/ren-ren-dai-jie-kuan/id1149186410?mt=8"
+               class="dbtn dbtn-ios" id="iphoneUp">iPhone版</a>
+            <a href="https://loan.renrendai.com/androidApk/rrd_ucredit.apk"
+               class="dbtn dbtn-and" id="androidUp">Android版</a>
+          </div>
+          <div class="qrcode">
+            <div class="qrimg"></div>
+            <p>扫描下载App</p>
+          </div>
+        </div>
+      </div>
+      <div class="loan-right">
+        <img src="" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="condition content">
+    <div class="title">申请条件有哪些</div>
+    <div class="flex-block" style="margin-top: 22px">
+      <div class="con-item left age">
+        <div class="con-icon age">
+          <img src="picture/age_1.png" alt="年龄要求">
+        </div>
+        <div class="content">
+          <div class="title">年龄要求</div>
+          <div class="desc">年龄需在18(含)至55(含)<br>周岁之间
+          </div>
+        </div>
+      </div>
+      <div class="con-item right mobile">
+        <div class="con-icon age">
+          <img src="picture/mobile_1.png" alt="实名认证手机号">
+        </div>
+        <div class="content">
+          <div class="title">实名认证手机号</div>
+          <div class="desc">需使用本人实名认证的<br>手机号进行注册</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex-block" style="margin-top: 18px">
+      <div class="con-item left report">
+        <div class="con-icon age">
+          <img src="picture/report_1.png" alt="征信报告">
+        </div>
+        <div class="content">
+          <div class="title">征信报告</div>
+          <div class="desc">需提交中国人民银行征信<br>中心出具的《个人信用报告》
+          </div>
+        </div>
+      </div>
+      <div class="con-item right record">
+        <div class="con-icon age">
+          <img src="picture/record_1.png" alt="微粒贷借款记录(增信项)">
+        </div>
+        <div class="content">
+          <div class="title">微粒贷借款记录(增信项)</div>
+          <div class="desc">拥有微粒贷额度，可提升申请额度<br>降低费率，缩短审核、放款时间
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flow">
+    <div class="content">
+      <div class="flow-title">四步搞定，极速放款</div>
+      <ul class="flow-list">
+        <li>
+          <div class="flow-icon"><img src="picture/icon-register_1.png" alt=""></div>
+          <p>注册借款账号</p>
+        </li>
+        <li>
+          <div class="flow-icon"><img src="picture/icon-fillin_1.png" alt=""></div>
+          <p>上传信用信息</p>
+        </li>
+        <li>
+          <div class="flow-icon"><img src="picture/icon-info_1.png" alt=""></div>
+          <p>最快10分钟审核</p>
+        </li>
+        <li>
+          <div class="flow-icon"><img src="picture/icon-fast_1.png" alt=""></div>
+          <p>最快5分钟放款</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="intro intro-version clearfix">
+    <div class="content intro-left-side">
+      <div class="intro-image">
+        <img src="picture/intro-image-version_1.png" alt="">
+      </div>
+      <dl class="intro-text right">
+        <dt>全新流程 &nbsp;一键借款</dt>
+        <dd>人人贷借款v2.3.4版本全线上申请流程</dd>
+        <dd>更便捷更快速，只需四步，一键搞定</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="intro intro-fast clearfix">
+    <div class="content intro-right-side">
+      <div class="intro-image">
+        <img src="picture/intro-image-fast_1.png" alt="">
+      </div>
+      <dl class="intro-text rate">
+        <dt>费率更低 安全可靠</dt>
+        <dd>强大系统支撑、更少人工参与，管理费更低</dd>
+        <dd>采用业内最先进的加密技术，</dd>
+        <dd>确保用户隐私信息安全</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="intro intro-bigdata clearfix" style="padding-top: 0px">
+    <div class="content intro-left-side">
+      <div class="intro-image">
+        <img src="picture/intro-image-bigdata_1.png" alt="">
+      </div>
+      <dl class="intro-text evaluation right">
+        <dt>全方位大数据风控测评</dt>
+        <dd>利用大数据风控逻辑对您的信用状况进行<br>
+          更快速、更精准的评估快速审核，在最短<br>
+          的时间内给您最合适的借款额度及费率<br>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="intro intro-safe clearfix">
+    <div class="content intro-right-side">
+      <div class="intro-image">
+        <img src="picture/intro-image-efficient_1.png" alt="">
+      </div>
+      <dl class="intro-text">
+        <dt>灵活还款 高效便捷</dt>
+        <dd>多种还款方式，方便您及时还款，</dd>
+        <dd>保持完美的个人信用记录</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="feature">
+    <div class="content">
+      <div class="feature-title">精心打造 快速审批</div>
+      <ul class="feature-list">
+        <li>
+          <div class="feature-icon">
+            <img src="picture/feature-easy_1.png" alt="">
+          </div>
+          <dl>
+            <dt>门槛低</dt>
+            <dd>满18周岁即可申请</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="feature-icon">
+            <img src="picture/feature-more_1.png" alt="">
+          </div>
+          <dl>
+            <dt>额度高</dt>
+            <dd>最高借款额度达10万元</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="feature-icon">
+            <img src="picture/feature-fast_1.png" alt="">
+          </div>
+          <dl>
+            <dt>放款快</dt>
+            <dd>最快10分钟内审核完成</dd>
+          </dl>
+        </li>
+        <li>
+          <div class="feature-icon">
+            <img src="picture/feature-low_1.png" alt="">
+          </div>
+          <dl>
+            <dt>利率低</dt>
+            <dd>月利率低至0.78%</dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-download">
+    <div class="content">
+      <div class="btns">
+        <a href="https://itunes.apple.com/cn/app/ren-ren-dai-jie-kuan/id1149186410?mt=8"
+           class="dbtn dbtn-ios" id="iphoneDown">iPhone版</a>
+        <a href="https://loan.renrendai.com/androidApk/rrd_ucredit.apk" class="dbtn dbtn-and"
+           id="androidDown">Android版</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  <div class="content split" style="padding: 40px 0px 20px 0px;">
+    <div class="left" style="width:48%;">
+      <div class="left" style="margin-right:15px;">友情链接：</div>
+      <div class="">
+        <ul class="clear">
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="https://www.renrendai.com">人人贷理财</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="https://www.rong360.com">融360</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="http://www.dimeng.net">网贷系统</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="http://www.p2peye.com">网贷天眼</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="http://www.wdzj.com">网贷之家</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" target="_blank" rel="nofollow" href="http://www.wangdaiabc.cn">网贷ABC</a>
+          </li>
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.wquant.com">微量网</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.diyou.cn">网贷系统</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://jiaohang.kameng.com ">交通银行</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.rongebang.com">融e邦</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.xwjr.com/">希望金融</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.btctrade.com">比特币</a>-->
+          <!--</li>-->
+          <!--<li class="fn-left">-->
+            <!--<a class="gray" target="_blank" rel="nofollow" href="http://www.ppdai.com">拍拍贷</a>-->
+          <!--</li>-->
+        </ul>
+        <ul class="fn-clear" style="padding:0px;">
+          <li class="fn-left">
+            <a class="gray" href="http://www.renrendai.com/pc/about/rrd/contact" target="_blank">联系我们</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" href="http://www.renrendai.com/pc/about/rrd" target="_blank">公司介绍</a>
+          </li>
+          <li class="fn-left">
+            <a class="gray" href="http://bbs.we.com" target="_blank">人人贷论坛</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="contacts right">
+      <ul>
+        <li><span class="label">人人贷借款App咨询</span><span>400-699-3906</span><span class="small-label">（服务时间9:00-21:00）</span></li>
+        <li><span class="label">借款咨询</span><span>400-696-6000</span><span class="small-label">（服务时间9:00-18:00）</span></li>
+        <li><span class="label">WE理财咨询</span><span>400-090-6600</span><span class="small-label">（服务时间9:00-21:00）</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="content" style="clear: both; padding-bottom: 20px;">
+    <div class="text-center" style="padding: 10px 0px;">© 2016 人人贷 All rights reserved 人人贷商务顾问(北京)有限公司 京ICP证 100953号
+      京ICP备12025643号-6
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<script src="__JS__/jquery.throttle-debounce.min_1.js"></script>
+<script type="text/javascript">
+  $('body').css({visibility: 'visible'});
+</script>
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?18fba79a3779e109646833e2e02b584b";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-96121189-2', 'auto');
+  ga('send', 'pageview');
+  /*
+   * 统计操作类
+   * */
+  var statUtil = {
+    trackEvent: function (eventCategory, eventAction, eventLabel, eventValue) {
+      _hmt.push(['_trackEvent', eventCategory, eventAction, eventLabel, eventValue]);
+      ga('send', 'event', eventCategory, eventAction, eventLabel, eventValue);
+    }
+  };
+</script>
+
+<script type="text/javascript">
+  function queryString() {
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split(/=(.+)/);
+      // If first entry with this name
+      if (typeof query_string[pair[0]] === "undefined") {
+        query_string[pair[0]] = decodeURIComponent(pair[1]);
+        // If second entry with this name
+      } else if (typeof query_string[pair[0]] === "string") {
+        var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+        query_string[pair[0]] = arr;
+        // If third or later entry with this name
+      } else {
+        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+      }
+    }
+    return query_string;
+  }
+  statUtil.trackEvent('firstComein', '首次进入');
+  document.getElementById('iphoneUp').addEventListener('click', function () {
+    statUtil.trackEvent('downloan', '顶部iphone点击');
+  });
+  document.getElementById('androidUp').addEventListener('click', function () {
+    statUtil.trackEvent('downloan', '顶部android点击');
+  });
+  document.getElementById('iphoneDown').addEventListener('click', function () {
+    statUtil.trackEvent('downloan', '底部iphone点击');
+  });
+  document.getElementById('androidDown').addEventListener('click', function () {
+    statUtil.trackEvent('downloan', '底部android点击');
+  });
+  document.getElementById('login').addEventListener('click', function () {
+    statUtil.trackEvent('首页按钮', '登录点击');
+  });
+  var queryStr = queryString();
+  statUtil.trackEvent('origin', queryStr['origin'] || '');
+  statUtil.trackEvent('source', queryStr['source'] || '');
+</script>
+
+
+</body>
+</html>
