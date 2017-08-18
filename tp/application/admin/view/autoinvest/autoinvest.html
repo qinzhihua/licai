@@ -148,10 +148,15 @@
 
             <li class="channel-item" style="width: 144px;"><a href="__ADMIN__/borrow/borrow" target="_blank">我要借款/还款</a></li>
             <li class="user-item fn-clear" num="">
-
+                <?php if(empty($userInfo)){?>
                 <div class="denglu">
                     <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/login">登录</a>
                 </div>
+                <?php }else{?>
+                <div class="user-name fn-clear">
+                    <a href="/public/admin/account/account">我的账户</a>
+                </div>
+                <?php }?>
 
             </li>
         </ul>
@@ -176,6 +181,7 @@
     <div class="title">
         <div class="name">薪计划<?php echo $data['productName']?>期</div>
         <input type="hidden" value="<?php echo $data['id']?>" id="name">
+        <input type="hidden" value="<?php echo $data['productTypeId']?>" id="productTypeId"/>
         <a class="agreement-link" href="https://www.renrendai.com/autoinvestplan/autoInvestPlanContract.action?autoInvestPlanId=20569" target="_blank">薪计划<?php echo $data['productName']?>期协议（范本）</a>
     </div>
     <div class="status">
@@ -212,7 +218,7 @@
                 </div>
                 <?php }else{?>
                    <div class="s-title">
-                    <div class="account-tip">账户余额<font color="red"><?php echo sprintf("%.2f",$userInfo['money'])?></font><a href="/public/admin/account/BRANK">充值</a></div>
+                    <div class="account-tip">账户余额<font color="red"><?php echo sprintf("%.2f",$userInfo['money'])?></font><a href="/public/admin/account/bank">充值</a></div>
                 </div>
                 <?php }?>
                 <div class="amount-ipt" >
@@ -626,6 +632,7 @@ $(function(){
             data:{"price":price,"id":id},
             success:function(msg){
                 if(msg==1){
+                    alert("请先登陆！");
                     window.location.href = "http://www.shixun.com/public/admin/login/login";
                 }else{
                     $("#show").html(msg);
@@ -644,20 +651,24 @@ $(document).on("click",".submit",function(){
     var price = $("#price").html();
     var userId = $("#userId").val();
     var productId = $("#name").val();
+    var type = $("#productTypeId").val();
     var url = 'http://www.shixun.com/public/admin/autoinvest/code';
     $.ajax({
         type:"get",
         url:url,
-        data:{"price":price,"id":userId,"productId":productId},
+        data:{"price":price,"id":userId,"productId":productId,"type":type},
         success:function(msg){
            if(msg==1){
             alert("余额不足,请充值！！！");
            }else if(msg==2){
                alert("支付成功！");
+               window.location.href = "http://www.shixun.com/public/admin/account/account";
            }else if(msg==3){
              alert("支付失败！");
            }else if(msg==4){
             alert("名额已满！");
+           }else if(msg==5){
+               alert("请先实名认证！");
            }
         }
     })

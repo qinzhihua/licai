@@ -3,14 +3,14 @@ namespace app\admin\controller;
 use think\Controller; //使用控制器
 use think\Db;
 use think\Request;
-use \think\Session;
+use think\Session;
 class Autoinvest extends Controller
 {
     //设置默认用户
 	public function session(){
         $data = Db::table("userinfo")->where("id",1)->find();
         session::set("user",$data);
-        // session::delete("user");
+//         session::delete("user");
 	}
 
    //薪计划
@@ -54,42 +54,57 @@ class Autoinvest extends Controller
    	 $price = Input("get.price");
      $id = Input("get.id");
      $productId = Input("get.productId");
+       $type = Input("get.type");
      //读取用户信息
      $data = Db::table("userinfo")->where("id",$id)->find();
-	 $newMoney = $data['money']-$price;
-	 //判断是否有余额
-     if($price>$data['money']){
-     	echo 1;
-     }else{
-     	$productInfo = Db::table("productinfo")->where("id",$productId)->find();
-     	$newMan = $productInfo['actualInvestment']+1;
-     	//判断产品购买人数
-     	if($newMan>$productInfo['plannedInvestment']){
-            echo 4;
-     	}else{
-     		$phone = substr($data['telephone'],-4);
-	     	$time = time();
-	     	$order_id = '698'.$time.$phone;
-	     	$interestEndTime = $productInfo['investTime']+3600*24*365;
-	     	//订单数据
-	     	$dataInfo = ['order_id'=>$order_id,"userid"=>$data['id'],"productId"=>$productInfo['id'],"orderAmount"=>$price,"paytime"=>$time,"addtime"=>$time,"orderStatus"=>2,"interestTime"=>$productInfo['investTime'],"regular"=>$productInfo['deadline'],"interestEndTime"=>$interestEndTime,"rate"=>$productInfo['rate']];
-	     	//添加订单
-	     	$res = Db::table("order")->insert($dataInfo);
-	     	if($res){
-	     		//修改产品购买人数
-	     		Db::table("productinfo")->where("id",$productInfo['id'])->update(['actualInvestment'=>$newMan]);
-	     		//修改用户余额
-	     		Db::table("userinfo")->where("id",$data['id'])->update(["money"=>"$newMoney"]);
-	     		//修改session数据
-	     		$user = Db::table("userinfo")->where("id",$data['id'])->find();
-	     		session::set("user",$user);
-	     		echo 2;
-	     	}else{
-	     		echo 3;
-	     	}
-     	}
-     	
-     }
+
+	 //判断是否实名认证
+       if($data['authstatus']==1){
+       //判断是否有余额
+           if($price>$data['money']){
+               echo 1;   //余额不足
+           }else{
+               $productInfo = Db::table("productinfo")->where("id",$productId)->find();
+               $newMan = $productInfo['actualInvestment']+1;
+               //判断产品购买人数
+               if($newMan>$productInfo['plannedInvestment']){
+                   echo 4;     //购买名额已满
+               }else{
+                   $phone = substr($data['telephone'],-4);   //截取手机号后四位
+                   $time = time();
+                   if($type=='1'){
+                       $order_id = '123'.$time.$phone;      //生成关于U计划的订单号
+                   }else if($type=='2'){
+                       $order_id = '475'.$time.$phone;   //生成关于优选计划的订单号
+                   }else if($type=='3'){
+                       $order_id = '698'.$time.$phone;   //生成关于薪计划的订单号
+                   }
+
+                   $interestEndTime = $productInfo['investTime']+3600*24*365;
+                   $newMoney = $data['money']-$price;     //支付后的账户余额
+                   //订单数据
+                   $dataInfo = ['order_id'=>$order_id,"userid"=>$data['id'],"productId"=>$productInfo['id'],"orderAmount"=>$price,"paytime"=>$time,"addtime"=>$time,"orderStatus"=>2,"interestTime"=>$productInfo['investTime'],"regular"=>$productInfo['deadline'],"interestEndTime"=>$interestEndTime,"rate"=>$productInfo['rate']];
+                   //添加订单
+                   $res = Db::table("order")->insert($dataInfo);
+                   if($res){
+                       //修改产品购买人数
+                       Db::table("productinfo")->where("id",$productInfo['id'])->update(['actualInvestment'=>$newMan]);
+                       //修改用户余额
+                       Db::table("userinfo")->where("id",$data['id'])->update(["money"=>"$newMoney"]);
+                       //修改session数据
+                       $user = Db::table("userinfo")->where("id",$data['id'])->find();
+                       session::set("user",$user);
+                       echo 2;    //支付成功
+                   }else{
+                       echo 3;    //支付失败
+                   }
+               }
+
+           }
+       }else{
+           echo 5;  //未实名
+       }
+
    }
 
    public function getHtml($list,$info)

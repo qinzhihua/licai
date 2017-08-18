@@ -111,7 +111,7 @@
             <div class="wdg-werenrendai-second-header">
     <div class="main-section current-channel-uplan">
         <a href="/" class="brand-logo mt15">
-            
+
             <h2 class="rrd-logo">人人贷</h2>
         </a>
         <ul class="site-nav">
@@ -128,10 +128,15 @@
 
             <li class="channel-item" style="width: 144px;"><a href="__ADMIN__/borrow/borrow" target="_blank">我要借款/还款</a></li>
             <li class="user-item fn-clear" num="">
-
+                <?php if(empty($userInfo)){?>
                 <div class="denglu">
-                    <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/regist">登录</a>
+                    <a target="_self" href="__ADMIN__/login/regist">注册</a> / <a target="_self" href="__ADMIN__/login/login">登录</a>
                 </div>
+                <?php }else{?>
+                <div class="user-name fn-clear">
+                    <a href="/public/admin/account/account">我的账户</a>
+                </div>
+                <?php }?>
             </li>
         </ul>
     </div>
@@ -160,7 +165,7 @@
 <?php foreach($res as $k => $v){?>
             <!--<foreach name="res" item="v">-->
             <li>
-                <a class="cover" href="https://www.renrendai.com/pc/uplan/14469.html" target="_blank">
+                <a class="cover" href="/public/admin/uplan/info?id={$v.id}" target="_blank">
                     <p class="time">
                         <span class="month"><img src="__PICTURE__/time_53c7a37_1.png"/><em>{$v.productName}个月</em></span>
                         <img src="__PICTURE__/uplan_xian_f5e9d9a_1.png" class="xian">
