@@ -12,6 +12,11 @@ class Autoinvest extends Controller
         session::set("user",$data);
 //         session::delete("user");
 	}
+ 
+   //薪计划定时计划
+   public function timingPlan(){
+       
+   }
 
    //薪计划
     public function autoinvest()
@@ -32,7 +37,9 @@ class Autoinvest extends Controller
         return $this->fetch('autoinvest');
     }
 
-
+  /**
+   * 调用支付页面
+   */
    public function add(){
      $price = Input("get.price");
      $id = Input("get.id");
@@ -49,7 +56,9 @@ class Autoinvest extends Controller
     
    }
 
-//验证余额并支付
+/**
+ * 验证余额并支付
+ */
    public function code(){
    	 $price = Input("get.price");
      $id = Input("get.id");
@@ -84,7 +93,8 @@ class Autoinvest extends Controller
                    $newMoney = $data['money']-$price;     //支付后的账户余额
                    //订单数据
                    $dataInfo = ['order_id'=>$order_id,"userid"=>$data['id'],"productId"=>$productInfo['id'],"orderAmount"=>$price,"paytime"=>$time,"addtime"=>$time,"orderStatus"=>2,"interestTime"=>$productInfo['investTime'],"regular"=>$productInfo['deadline'],"interestEndTime"=>$interestEndTime,"rate"=>$productInfo['rate']];
-                   //添加订单
+                   echo json_encode($dataInfo);
+                 /*  //添加订单
                    $res = Db::table("order")->insert($dataInfo);
                    if($res){
                        //修改产品购买人数
@@ -97,7 +107,7 @@ class Autoinvest extends Controller
                        echo 2;    //支付成功
                    }else{
                        echo 3;    //支付失败
-                   }
+                   }*/
                }
 
            }

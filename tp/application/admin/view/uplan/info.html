@@ -734,15 +734,15 @@
                 success:function(msg){
                     if(msg==1){
                         alert("余额不足,请充值！！！");
-                    }else if(msg==2){
-                        alert("支付成功！");
-                        window.location.href = "http://www.shixun.com/public/admin/account/account";
                     }else if(msg==3){
                         alert("支付失败！");
                     }else if(msg==4){
                         alert("名额已满！");
                     }else if(msg==5){
                         alert("请先实名认证！");
+                    }else{
+                        alert(msg);
+/*                        window.location.href = "http://www.shixun.com/public/admin/account/account";*/
                     }
                 }
             })
