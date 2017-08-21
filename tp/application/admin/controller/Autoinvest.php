@@ -12,13 +12,10 @@ class Autoinvest extends Controller
         session::set("user",$data);
 //         session::delete("user");
 	}
- 
-   //薪计划定时计划
-   public function timingPlan(){
-       
-   }
 
-   //薪计划
+   /**
+    * 薪计划信息展示
+    */
     public function autoinvest()
     {
     	//查询本期薪计划信息
@@ -46,11 +43,12 @@ class Autoinvest extends Controller
      $data = Db::table("productinfo")->where("id",$id)->find();
      $info['price'] = $price;
      $info['money'] = $price *$data['deadline'];
-     $res = session::get("user");
-     //判断是否有余额
-     if(empty($res)){
+     $user = session::get("user");
+     //判断是否登陆
+     if(empty($user)){
      	echo 1;
      }else{
+      //调用支付页面
      	 echo $this->getHtml($data,$info);
      }
     
@@ -60,19 +58,21 @@ class Autoinvest extends Controller
  * 验证余额并支付
  */
    public function code(){
+    $payment = Input("get.payment");
    	 $price = Input("get.price");
      $id = Input("get.id");
      $productId = Input("get.productId");
        $type = Input("get.type");
      //读取用户信息
      $data = Db::table("userinfo")->where("id",$id)->find();
-
-	 //判断是否实名认证
-       if($data['authstatus']==1){
-       //判断是否有余额
-           if($price>$data['money']){
-               echo 1;   //余额不足
-           }else{
+     //判断支付密码
+      if($payment == $data['payment']){
+    	 //判断是否实名认证
+           if($data['authstatus']==1){
+           //判断是否有余额
+             if($price>$data['money']){
+                 echo 1;   //余额不足
+             }else{
                $productInfo = Db::table("productinfo")->where("id",$productId)->find();
                $newMan = $productInfo['actualInvestment']+1;
                //判断产品购买人数
@@ -89,13 +89,12 @@ class Autoinvest extends Controller
                        $order_id = '698'.$time.$phone;   //生成关于薪计划的订单号
                    }
 
-                   $interestEndTime = $productInfo['investTime']+3600*24*365;
+                   $interestEndTime = $productInfo['investTime']+3600*24*365;   //到期时间
                    $newMoney = $data['money']-$price;     //支付后的账户余额
                    //订单数据
                    $dataInfo = ['order_id'=>$order_id,"userid"=>$data['id'],"productId"=>$productInfo['id'],"orderAmount"=>$price,"paytime"=>$time,"addtime"=>$time,"orderStatus"=>2,"interestTime"=>$productInfo['investTime'],"regular"=>$productInfo['deadline'],"interestEndTime"=>$interestEndTime,"rate"=>$productInfo['rate']];
-                   echo json_encode($dataInfo);
-                 /*  //添加订单
-                   $res = Db::table("order")->insert($dataInfo);
+                   //添加订单
+                  $res = Db::table("order")->insert($dataInfo);
                    if($res){
                        //修改产品购买人数
                        Db::table("productinfo")->where("id",$productInfo['id'])->update(['actualInvestment'=>$newMan]);
@@ -107,18 +106,21 @@ class Autoinvest extends Controller
                        echo 2;    //支付成功
                    }else{
                        echo 3;    //支付失败
-                   }*/
+                   }
                }
 
            }
        }else{
            echo 5;  //未实名
        }
+     }else{
+      echo 6;    //支付密码错误
+     }
 
    }
 
    public function getHtml($list,$info)
-    {   
+   {   
     	$user = session::get("user");
         return $res = '<div class="autoinvest-buy-main" style="display: block;">
                 <div class="autoinvest-shadow"></div>
@@ -138,18 +140,24 @@ class Autoinvest extends Controller
             <div class="amount"><span class="l-title">总投资金额</span> <span class="text-value total-invest-money">'.$info['money'].'元</span></div>
             <div class="coupon fn-clear" id="coupon">
             <div class="coupon-component" data-reactid=".3">
-            <div class="coupon-left" data-reactid=".3.0"><span class="l-title">优惠劵</span></div>
+
+            <div class="coupon-left" data-reactid=".3.0"><span class="l-title">支付方式：</div><input type="radio" value="1" name="zhifu">余额  <input type="radio" value="2" name="zhifu">支付宝
+               <input type="radio" value="3" name="zhifu">微信
+            </span> 
+
             <div class="coupon-right" data-reactid=".3.1">
             <div class="coupon-one-line" data-reactid=".3.1.0"><span data-reactid=".3.1.0.0"></span><span data-reactid=".3.1.0.1"></span></div>
             <!-- <div class="j_gray_packet_tips " data-reactid=".3.1.1">本次投资可抵扣元</div> --><span data-reactid=".3.1.2"></span><div class="coupon-error" data-reactid=".3.1.3"></div></div></div></div>
 
             <div class="invest-d"><span class="l-title">每月投资日</span> <span class="text-value invest-date">每月'.substr($list['productName'],-2).'号</span></div>
             <div class="real-money"><span class="l-title">应付金额</span> <span class="text-value actual-price" data-actual-money="5500">'.$info['price'].'元</span></div>
+
             <div class="agreement"><i class="icon-we-gouxuanicon"></i>我已阅读并同意签署<a href="/autoinvestplan/autoInvestPlanContract.action?autoInvestPlanId=20569" target="_blank">《薪计划170815期服务协议书》</a>及<a href="https://www.renrendai.com/pc/agreement/contract/currency/cmsId/58ec7c0d090cc9096532d0ca" target="_blank">《风险提示》</a></div>
         </div>
+       
         </div>
             <div class="form-footer">
-                <div class="submit J-autoinvest-submit">确定</div><div class="add-tip">
+                <div class="submit J-autoinvest-submit">去支付</div><div class="add-tip">
                         <div class="title">温馨提示</div>
                         <div class="msg">1、月投资日、月投资金额由加入时确定, 后续月份不支持修改。</div>
                         <div class="msg">2、为避免延期, 请每月提前充值至账户, 系统达到每月投资日自动划扣。</div>
